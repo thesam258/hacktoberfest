@@ -1,0 +1,49 @@
+# Define an empty list to store tasks
+tasks = []
+
+# Function to add a task to the list
+def add_task(task):
+    tasks.append(task)
+    print("Task added: " + task)
+
+# Function to list all tasks
+def list_tasks():
+    if tasks:
+        print("Tasks:")
+        for index, task in enumerate(tasks, 1):
+            print(f"{index}. {task}")
+    else:
+        print("No tasks in the list.")
+
+# Function to mark a task as completed
+def complete_task(task_index):
+    if 1 <= task_index <= len(tasks):
+        completed_task = tasks.pop(task_index - 1)
+        print("Task completed: " + completed_task)
+    else:
+        print("Invalid task index.")
+
+# Main application loop
+while True:
+    print("\nOptions:")
+    print("1. Add a task")
+    print("2. List tasks")
+    print("3. Mark a task as completed")
+    print("4. Quit")
+    choice = input("Enter your choice: ")
+
+    if choice == "1":
+        task = input("Enter a task: ")
+        add_task(task)
+    elif choice == "2":
+        list_tasks()
+    elif choice == "3":
+        list_tasks()
+        task_index = int(input("Enter the index of the task to mark as completed: "))
+        complete_task(task_index)
+    elif choice == "4":
+        break
+    else:
+        print("Invalid choice. Please choose a valid option.")
+
+print("Goodbye!")
